@@ -1,0 +1,72 @@
+---
+title: "Sampling_IBS"
+author: "Aulia Dini"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+### Pendahuluan
+
+Dokumen ini disiapkan untuk membandingkan metode sampling IBS lama dengan metode baru usulan PMSS. Metode lama menggunakan 5 tahap pemilihan sampling disertai dengan penyusunan indeks menggunakan discrete divisia. Metode baru adalah probability sampling usulan PMSS. 
+
+Pertimbangan design sampel:
+
+1. Sampling unit
+
+2. Stratifikasi yang digunakan
+
+3. Alokasi
+
+4. Pertimbangan lain (Non-respon, Frame yang tidak update, over-allocation, ukuran sampel minimum, kemiripan coefficient of variation untuk setiap strata)
+
+Evaluasi kebaikan metode ditunjukkan dengan :
+
+1. Penggunakan probability sampling secara baik menjamin estimasi
+
+2. Design dapat mengakomodir dinamika perubahan populasi seperti perusahaan baru, tutup, pisah, gabung (mergers/perusahaan asal masih ada dan amalgamation/ perusahaan asal hilang), dan perubahan klasifikasi. 
+
+3. Sampel memungkinkan adanya rotasi sampel untuk mengurangi beban responden. 
+
+4. Terdapat kontrol terhadap unit yang terpilih dalam beberapa survei secara berturut-turut --> mungkin tidak relevan untuk dokumen ini. 
+
+5. Jika ada perubahan stratifikasi terhadap populasi, design memungkinkan untuk ditarik sampel ulang yang mencerminkan strata terbaru dan fraksi sampling. 
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+### Simulasi
+
+```{r}
+# baca dataset
+library(readxl)
+stpim22 <- read_excel("D:/AULIA/Data/mfg22h (1).xlsx")
+```
+
+```{r}
+# buat kolom untuk kbli 2 digit
+stpim22$kbli2 <- substr(stpim22$Disic522, 1, 2)
+```
+
+```{r}
+# subset data untuk kbli 10
+sub1 <- subset(stpim22, kbli2 %in% c("10"))
+```
+
+Ada 7475 perusahaan industri makanan. 
+
+Asumsi frame:
+
+1. Tidak ada perusahaan yang tutup. Dalam frame yang riil, perusahaan yang tutup dikeluarkan dari frame terlebih dahulu. 
+
+2. Tidak ada outlier
+
+variabel output adalah `Output22`
+
+```{r}
+# penentuan cut off point
+
+```
+
+
+### History
